@@ -374,6 +374,7 @@
             border-radius: 5px;
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div class="container">
@@ -392,6 +393,8 @@
             <!--</div>-->
         </div>
     </div>
+
+    <button class="btn" onclick="toggleRotation()"><i class="fa fa-rotate-right"></i></button>
 
     <!-- Edit Modal -->
     <div id="editModal" class="modal">
@@ -440,11 +443,11 @@
 
         // Инициализация данных
         function initializeRates() {
-            console.log('initializeRates:', localStorage.getItem("currentRates", currentRates));
-            if (localStorage.getItem("currentRates", currentRates) == null) {
+            console.log('initializeRates:', localStorage.getItem("currentRates"));
+            if (localStorage.getItem("currentRates") == null) {
               currentRates = JSON.parse(JSON.stringify(baseCurrencies));
             } else {
-              currentRates = JSON.parse(localStorage.getItem("currentRates", currentRates));
+              currentRates = JSON.parse(localStorage.getItem("currentRates"));
             }
         }
 
@@ -618,10 +621,13 @@
 
         // Инициализация
         function init() {
+            if (localStorage.getItem("screenTransform") != null) {
+               document.body.style.transform = localStorage.getItem("screenTransform");
+            }
             initializeRates();
             renderRates();
             updateLastUpdateTime();
-            
+
             // Запуск таймера обратного отсчета
             // countdownInterval = setInterval(updateCountdown, 1000);
         }
@@ -637,6 +643,19 @@
                 countdownInterval = setInterval(updateCountdown, 1000);
             }
         });
+
+        function toggleRotation() {
+            const body = document.body;
+            const currentTransform = body.style.transform;
+            
+            if (currentTransform === 'rotate(90deg)') {
+                body.style.transform = 'rotate(270deg)';
+                localStorage.setItem('screenTransform', 'rotate(270deg)');
+            } else {
+                body.style.transform = 'rotate(90deg)';
+                localStorage.setItem('screenTransform', 'rotate(90deg)');
+            }
+        }
     </script>
 </body>
 </html>
