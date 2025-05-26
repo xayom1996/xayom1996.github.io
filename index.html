@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Курс валют</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!--     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"> -->
     <style>
         * {
             margin: 0;
@@ -17,7 +17,7 @@
             background: linear-gradient(135deg, #555DB3 0%, #F5F5F6 100%);
             min-height: 100vh;
             padding: 20px;
-            transform: rotate(90deg);
+/*             transform: rotate(90deg); */
         }
 
         .container {
@@ -374,7 +374,7 @@
             border-radius: 5px;
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 </head>
 <body>
     <div class="container">
@@ -394,7 +394,7 @@
         </div>
     </div>
 
-    <button class="btn" onclick="toggleRotation()"><i class="fa fa-rotate-right"></i></button>
+<!--     <button class="btn" onclick="toggleRotation()"><i class="fa fa-rotate-right"></i></button> -->
 
     <!-- Edit Modal -->
     <div id="editModal" class="modal">
@@ -621,9 +621,9 @@
 
         // Инициализация
         function init() {
-            if (localStorage.getItem("screenTransform") != null) {
-               document.body.style.transform = localStorage.getItem("screenTransform");
-            }
+            // if (localStorage.getItem("screenTransform") != null) {
+            //    document.body.style.transform = localStorage.getItem("screenTransform");
+            // }
             initializeRates();
             renderRates();
             updateLastUpdateTime();
